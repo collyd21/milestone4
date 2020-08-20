@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # Required for social accounts
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +70,29 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1  # Required for social accounts
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Logs emails to console for testing
+
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Authentication through username or email
+ACCOUNT_EMAIL_REQUIRED = True  # Email required to register
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Email verified so we know users are using a real email
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # Email required twice to ensure no typos
+ACCOUNT_USERNAME_MIN_LENGTH = 4  # Username length of characters minimum
+LOGIN_URL = '/accounts/login/'  # URL to login
+LOGIN_REDIRECT_URL = '/'  # URL after login
+
 
 WSGI_APPLICATION = 'milestone4.wsgi.application'
 
