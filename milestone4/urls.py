@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')), # Gives us all urls for login, logout, password, passsword resets etc.
+    path('accounts/', include('allauth.urls')),  # Gives us all urls for login, logout, password, passsword resets etc.
+    path('', include('home.urls')),  # URL for homepage 
 ]
