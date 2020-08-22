@@ -1,0 +1,15 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar {
+background: #f1f0ee;
+}
+
+.navbar-nav a {
+    color :  black;
+}
+
+.navbar-nav i {
+    color : grey;
+}
